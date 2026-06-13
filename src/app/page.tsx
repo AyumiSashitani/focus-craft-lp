@@ -139,14 +139,22 @@ export default function Home() {
             メールアドレスを登録しておくと、公開時に真っ先にお知らせします。
           </p>
           <EmailForm />
+          <p className="text-xs mt-4" style={{ color: "#8B8BA7" }}>
+            登録すると
+            <a href="/privacy" className="underline mx-1" style={{ color: "#9B8FFF" }}>プライバシーポリシー</a>
+            および
+            <a href="/terms" className="underline mx-1" style={{ color: "#9B8FFF" }}>利用規約</a>
+            に同意したものとみなされます。
+          </p>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="mt-auto px-6 py-8 text-center text-xs border-t"
         style={{ color: "#8B8BA7", borderColor: "#ffffff0d" }}>
-        <div className="flex items-center justify-center gap-6 mb-3">
+        <div className="flex items-center justify-center gap-6 mb-3 flex-wrap">
           <a href="/privacy" className="hover:text-white transition-colors">プライバシーポリシー</a>
+          <a href="/terms" className="hover:text-white transition-colors">利用規約</a>
           <a href="mailto:sashiiii.dev@gmail.com" className="hover:text-white transition-colors">お問い合わせ</a>
         </div>
         <p>© 2026 Focus Craft. All rights reserved.</p>
