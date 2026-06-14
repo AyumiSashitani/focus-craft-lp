@@ -13,7 +13,7 @@ const geistSans = Geist({
 // このトークンは公開情報（クライアントのHTMLに出る）なので既定値として埋め込む。
 // 別環境などで差し替えたい場合は NEXT_PUBLIC_CF_BEACON_TOKEN で上書きできる。
 const cfBeaconToken =
-  process.env.NEXT_PUBLIC_CF_BEACON_TOKEN ?? "fc9b515d5abf4ed8bc723fcad215676a";
+  process.env.NEXT_PUBLIC_CF_BEACON_TOKEN ?? "befc30d228904b329e9ca51da8c05b8f";
 
 // OGP などの絶対URLの基準。優先順位:
 // 1. NEXT_PUBLIC_SITE_URL（独自ドメイン確定後に Pages の環境変数で設定）
