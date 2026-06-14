@@ -42,14 +42,10 @@ export default function PrivacyPage() {
               ：OS バージョン、端末モデルなど。統計情報に含まれます。
             </li>
           </ul>
-          <p className="mt-4 mb-3">本ウェブサイトでは、以下の情報を収集します。</p>
-          <ul className="list-disc list-inside flex flex-col gap-2 ml-2">
-            <li>
-              <strong className="text-white">メールアドレス</strong>
-              ：公開のお知らせ（事前登録）をご希望いただいた場合に、登録フォームから
-              入力された情報をお預かりします。送信は任意です。
-            </li>
-          </ul>
+          <p className="mt-4">
+            本ウェブサイト（ランディングページ）は静的なページのみで構成されており、
+            お名前やメールアドレスなどの個人情報を入力・送信していただく機能はありません。
+          </p>
         </Section>
 
         <Section title="3. 情報の利用目的">
@@ -58,13 +54,8 @@ export default function PrivacyPage() {
             <li>アプリの品質改善およびバグ修正</li>
             <li>機能の使われ方の把握（UX 改善）</li>
             <li>クラッシュの検出と修正</li>
-            <li>
-              事前登録いただいたメールアドレス宛への、公開・アップデートに関するお知らせの送信
-            </li>
           </ul>
           収集した情報を第三者に販売することはありません。
-          メール配信は、各メール内のリンクまたはお問い合わせ先へのご連絡により、
-          いつでも停止できます。配信停止後は、登録いただいたメールアドレスを速やかに削除します。
         </Section>
 
         <Section title="4. 広告について">
@@ -75,8 +66,6 @@ export default function PrivacyPage() {
         <Section title="5. データの保管">
           タイマー設定・集中記録などのアプリデータは、お使いの端末内にのみ保存されます。
           現時点でクラウドへのアップロードは行いません。
-          事前登録いただいたメールアドレスは、お知らせの送信のためにのみ保管し、
-          配信停止のご連絡を受けた場合は速やかに削除します。
         </Section>
 
         <Section title="6. トラッキングについて（iOS）">
@@ -95,16 +84,6 @@ export default function PrivacyPage() {
                 className="ml-1 underline" style={{ color: "#9B8FFF" }}
                 target="_blank" rel="noopener noreferrer">
                 Google のプライバシーポリシー
-              </a>
-            </li>
-            <li>
-              <strong className="text-white">Formspree（Formspree, Inc.）</strong>
-              ：本ウェブサイトの事前登録フォームの送信処理。入力されたメールアドレスは
-              同社を経由して開発者に届きます。
-              <a href="https://formspree.io/legal/privacy-policy/"
-                className="ml-1 underline" style={{ color: "#9B8FFF" }}
-                target="_blank" rel="noopener noreferrer">
-                Formspree のプライバシーポリシー
               </a>
             </li>
           </ul>

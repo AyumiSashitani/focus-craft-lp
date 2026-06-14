@@ -1,5 +1,3 @@
-import EmailForm from "@/components/EmailForm";
-
 const features = [
   {
     icon: "⏱",
@@ -39,11 +37,11 @@ export default function Home() {
             Focus Craft
           </span>
         </div>
-        <a href="#notify"
-          className="text-sm px-4 py-2 rounded-full font-medium transition-opacity hover:opacity-80"
+        <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full"
           style={{ backgroundColor: "#9B8FFF22", color: "#9B8FFF", border: "1px solid #9B8FFF44" }}>
-          事前登録
-        </a>
+          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "#9B8FFF" }} />
+          近日公開
+        </span>
       </nav>
 
       {/* Hero */}
@@ -128,23 +126,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Notify CTA */}
-      <section id="notify" className="px-6 pb-32 max-w-lg mx-auto w-full text-center">
+      {/* Coming soon CTA */}
+      <section className="px-6 pb-32 max-w-lg mx-auto w-full text-center">
         <div className="rounded-3xl p-10"
           style={{ backgroundColor: "#2A2940", border: "1px solid #9B8FFF33" }}>
           <h2 className="text-2xl font-bold mb-3">
-            リリースを<span style={{ color: "#9B8FFF" }}>いち早く</span>知る
+            リリースまで<span style={{ color: "#9B8FFF" }}>もう少し。</span>
           </h2>
-          <p className="text-sm mb-8" style={{ color: "#8B8BA7" }}>
-            メールアドレスを登録しておくと、公開時に真っ先にお知らせします。
-          </p>
-          <EmailForm />
-          <p className="text-xs mt-4" style={{ color: "#8B8BA7" }}>
-            登録すると
-            <a href="/privacy" className="underline mx-1" style={{ color: "#9B8FFF" }}>プライバシーポリシー</a>
-            および
-            <a href="/terms" className="underline mx-1" style={{ color: "#9B8FFF" }}>利用規約</a>
-            に同意したものとみなされます。
+          <p className="text-sm" style={{ color: "#8B8BA7" }}>
+            App Store / Google Play での配信に向けて準備中です。
+            <br className="hidden sm:block" />
+            公開までお待ちください。
           </p>
         </div>
       </section>
