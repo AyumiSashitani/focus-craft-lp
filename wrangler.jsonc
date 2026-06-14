@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "focus-craft-lp",
+  "compatibility_date": "2026-06-01",
+  // サーバーコード（main）は持たず、out/ の静的アセットだけを配信する。
+  // next build（output: "export"）が生成した out/ をそのまま公開する。
+  "assets": {
+    "directory": "./out",
+    // 未知のパスは out/404.html を返す
+    "not_found_handling": "404-page"
+  }
+}
