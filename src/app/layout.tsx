@@ -7,8 +7,17 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+// OGP などの絶対URLの基準。優先順位:
+// 1. NEXT_PUBLIC_SITE_URL（独自ドメイン確定後に Pages の環境変数で設定）
+// 2. CF_PAGES_URL（Cloudflare Pages がビルド時に渡す .pages.dev の正規URL）
+// 3. 既定（ローカルビルド用フォールバック）
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.CF_PAGES_URL ??
+  "https://focuscraft.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://focuscraft.app"),
+  metadataBase: new URL(siteUrl),
   title: "Focus Craft — 集中が、積み上がる。",
   description:
     "ポモドーロ × cozy 育成。セッションをこなすほど相棒と作業部屋が育つ、新しい集中体験アプリ。",
@@ -16,7 +25,7 @@ export const metadata: Metadata = {
     title: "Focus Craft — 集中が、積み上がる。",
     description:
       "ポモドーロ × cozy 育成。セッションをこなすほど相棒と作業部屋が育つ、新しい集中体験アプリ。",
-    url: "https://focuscraft.app",
+    url: siteUrl,
     siteName: "Focus Craft",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
     locale: "ja_JP",
