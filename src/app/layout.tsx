@@ -10,9 +10,10 @@ const geistSans = Geist({
 });
 
 // Cloudflare Web Analytics のビーコントークン。
-// Cloudflare ダッシュボードで発行し、ビルド環境変数 NEXT_PUBLIC_CF_BEACON_TOKEN に設定する。
-// 未設定ならスクリプトは読み込まれない（ローカル開発時など）。
-const cfBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
+// このトークンは公開情報（クライアントのHTMLに出る）なので既定値として埋め込む。
+// 別環境などで差し替えたい場合は NEXT_PUBLIC_CF_BEACON_TOKEN で上書きできる。
+const cfBeaconToken =
+  process.env.NEXT_PUBLIC_CF_BEACON_TOKEN ?? "fc9b515d5abf4ed8bc723fcad215676a";
 
 // OGP などの絶対URLの基準。優先順位:
 // 1. NEXT_PUBLIC_SITE_URL（独自ドメイン確定後に Pages の環境変数で設定）
