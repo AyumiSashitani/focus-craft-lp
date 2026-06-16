@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Focus Craft — LP
 
-## Getting Started
+ポモドーロ × cozy 育成アプリ「Focus Craft」のランディングページ。
 
-First, run the development server:
+🔗 **公開URL: https://lp.focuscraft.workers.dev**
+
+## 構成
+
+- [Next.js 16](https://nextjs.org)（App Router / 静的エクスポート `output: "export"`）
+- Tailwind CSS v4
+- TypeScript
+
+ページ:
+
+- `/` — トップ（ヒーロー・機能・使い方）
+- `/privacy` — プライバシーポリシー
+- `/terms` — 利用規約
+
+## 開発
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # 開発サーバー（http://localhost:3000）
+npm run build    # 静的ビルド（out/ を生成）
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## デプロイ
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Cloudflare Workers（Static Assets）でホスティング。`main` への push で自動ビルド＆デプロイ（CI/CD）。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ビルド: `npm run build` → `out/` を生成
+- 配信: `npx wrangler deploy`（`wrangler.jsonc` の `assets` で `out/` を配信）
+- アクセス解析: Cloudflare Web Analytics（Cookieless）
 
-## Learn More
+### 環境変数（任意）
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 変数 | 用途 |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | OGP の絶対URLの基準（独自ドメイン確定後に設定。未設定時は `CF_PAGES_URL` → 既定値の順で解決） |
+| `NEXT_PUBLIC_CF_BEACON_TOKEN` | Cloudflare Web Analytics のトークン上書き（既定値をコードに同梱済み） |
