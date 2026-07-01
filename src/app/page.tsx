@@ -158,7 +158,7 @@ export default function Home() {
       <section className="relative flex flex-col items-center text-center px-6 pt-32 md:pt-40 pb-20">
         <h1 data-reveal className="text-[2.9rem] md:text-7xl font-extrabold leading-[1.14] tracking-tight mb-5"
           style={{ color: "#F1ECFB" }}>
-          集中が、
+          集中が
           <br className="md:hidden" />
           <span className="text-gradient">積み上がる。</span>
         </h1>
@@ -194,7 +194,7 @@ export default function Home() {
       <section className="relative px-6 pb-8 max-w-5xl mx-auto w-full">
         <h2 data-reveal className="text-center text-3xl md:text-4xl font-extrabold mb-16 tracking-tight"
           style={{ color: "#F1ECFB" }}>
-          こなすほど、<span className="text-gradient">育っていく。</span>
+          <span className="inline-block">こなすほど、</span><span className="text-gradient inline-block">育っていく。</span>
         </h2>
         <div className="flex flex-col gap-24 md:gap-28">
           <Showcase
@@ -202,7 +202,7 @@ export default function Home() {
             alt="そだてる画面。レベル・相棒・デイリークエスト"
             kicker="相棒と工房が育つ"
             accent="#B9A9E8"
-            title={<>集中するほど、<span className="text-gradient">相棒と工房が育つ。</span></>}
+            title={<><span className="inline-block">集中するほど、</span><span className="text-gradient inline-block">相棒と工房が育つ。</span></>}
             body="こなしたセッションが XP とコインになり、相棒とあなたの作業部屋が少しずつ豊かになっていく。ごほうびは、無機質な数字じゃない。"
             points={["相棒は5段階、作業部屋は8段階で成長", "はじまりは「謎の存在」— 正体はアプリで", "デイリークエストで今日の一歩をそっと後押し"]}
           />
@@ -211,7 +211,7 @@ export default function Home() {
             alt="統計画面。カレンダー・ヒートマップ・連続記録"
             kicker="がんばりが、残る"
             accent="#F2B24C"
-            title={<>続けた日々が、<span className="text-honey">ちゃんと残る。</span></>}
+            title={<><span className="inline-block">続けた日々が、</span><span className="text-honey inline-block">ちゃんと残る。</span></>}
             body="カレンダー・ヒートマップ・ストリークで、積み上げた集中が色づいていく。追い立てるためじゃなく、自分をやさしく振り返るために。"
             points={["日ごとの集中がヒートマップで一目に", "連続記録（ストリーク）で「明日も」が続く", "累計セッション・時間もまるごと記録"]}
             flip
@@ -223,7 +223,7 @@ export default function Home() {
       <section className="relative px-6 pt-24 pb-24 max-w-5xl mx-auto w-full">
         <h2 data-reveal className="text-center text-3xl md:text-4xl font-extrabold mb-14 tracking-tight"
           style={{ color: "#F1ECFB" }}>
-          集中の時間を、<span className="text-gradient">もっとあたたかく。</span>
+          <span className="inline-block">集中の時間を、</span><span className="text-gradient inline-block">もっとあたたかく。</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {perks.map((p, i) => (
@@ -247,7 +247,7 @@ export default function Home() {
       <section className="relative px-6 pb-24 max-w-2xl mx-auto w-full">
         <h2 data-reveal className="text-center text-3xl md:text-4xl font-extrabold mb-14 tracking-tight"
           style={{ color: "#F1ECFB" }}>
-          使い方は、<span className="text-honey">かんたん。</span>
+          <span className="inline-block">使い方は、</span><span className="text-honey inline-block">かんたん。</span>
         </h2>
         <div className="relative flex flex-col gap-2">
           <div aria-hidden className="absolute left-[1.45rem] top-4 bottom-4 w-0.5 rounded-full"
@@ -276,7 +276,7 @@ export default function Home() {
           <div className="relative flex flex-col items-center">
             <div className="float mb-5"><AppIcon size={76} /></div>
             <h2 className="text-2xl md:text-3xl font-extrabold mb-3 tracking-tight" style={{ color: "#F1ECFB" }}>
-              リリースまで<span className="text-gradient">もう少し。</span>
+              <span className="inline-block">リリースまで</span><span className="text-gradient inline-block">もう少し。</span>
             </h2>
             <p className="text-sm leading-loose" style={{ color: "#A79FC0" }}>
               App Store / Google Play での配信に向けて、
