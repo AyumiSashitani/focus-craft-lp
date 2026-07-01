@@ -123,6 +123,15 @@ const perks = [
   { icon: <IconHome />, accent: "#DE7356", title: "ごほうびは、居心地のいい部屋", body: "無機質な数字じゃなく、少しずつ育つ自分だけの作業部屋。" },
 ];
 
+// 夜の窓に立ちのぼる火の粉（位置・速度をずらして自然に）
+const embers = [
+  { left: "18%", dur: "7.5s", delay: "0s", drift: "10px" },
+  { left: "34%", dur: "9s", delay: "1.6s", drift: "-8px" },
+  { left: "52%", dur: "6.5s", delay: "3.2s", drift: "6px" },
+  { left: "71%", dur: "8.5s", delay: "0.8s", drift: "-12px" },
+  { left: "86%", dur: "7s", delay: "2.4s", drift: "9px" },
+];
+
 const steps = [
   { icon: <IconClock />, title: "時間を選ぶ", body: "15・25・45・90 分のプリセットから、ひとつ選ぶだけ。" },
   { icon: <IconLeaf />, title: "集中する", body: "環境音を流して、タイマーをそっとスタート。" },
@@ -219,39 +228,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Perks — こだわり4点（灯りで照らす夜の棚） */}
+      {/* Perks — こだわり4点（夜の窓：一枚のシーンに灯りを灯す） */}
       <section className="relative px-6 pt-24 pb-28 max-w-5xl mx-auto w-full">
-        <div aria-hidden className="perks-warmth" />
+        <div data-reveal className="night-panel p-8 md:p-14">
+          {/* 立ちのぼる火の粉 */}
+          <div aria-hidden className="absolute inset-0 pointer-events-none">
+            {embers.map((e, i) => (
+              <span key={i} className="ember"
+                style={{ left: e.left, ["--dur" as string]: e.dur, ["--delay" as string]: e.delay, ["--drift" as string]: e.drift }} />
+            ))}
+          </div>
 
-        <div data-reveal className="relative text-center mb-14">
-          <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] mb-4"
-            style={{ color: "#F2B24C" }}>
-            <span className="w-4 h-px" style={{ background: "linear-gradient(90deg, transparent, #F2B24C)" }} />
-            四つのこだわり
-            <span className="w-4 h-px" style={{ background: "linear-gradient(90deg, #F2B24C, transparent)" }} />
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight" style={{ color: "#F1ECFB" }}>
-            <span className="inline-block">集中の時間を、</span><span className="text-honey inline-block">もっとあたたかく。</span>
-          </h2>
-        </div>
+          {/* 見出し（左寄せでシーンに内包） */}
+          <div className="relative max-w-md mb-10 md:mb-12">
+            <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] mb-4"
+              style={{ color: "#F2B24C" }}>
+              <span className="w-4 h-px" style={{ background: "linear-gradient(90deg, transparent, #F2B24C)" }} />
+              四つのこだわり
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug" style={{ color: "#F1ECFB" }}>
+              <span className="inline-block">集中の時間を、</span><span className="text-honey inline-block">もっとあたたかく。</span>
+            </h2>
+            <p className="text-sm md:text-[15px] leading-loose mt-4" style={{ color: "#B3A9C8" }}>
+              急かす数字じゃなく、夜の心地よさを設計しました。灯りをひとつずつ、増やすように。
+            </p>
+          </div>
 
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {perks.map((p, i) => (
-            <div key={p.title} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
-              <div className="perk p-6 md:p-7 h-full"
+          {/* こだわり4件（枠なしの灯り／寒色→暖色へ） */}
+          <div className="relative grid md:grid-cols-2 gap-x-12 gap-y-8 md:gap-y-10">
+            {perks.map((p) => (
+              <div key={p.title} className="perk-line flex items-start gap-4"
                 style={{ ["--accent" as string]: p.accent }}>
-                <div className="relative flex items-start gap-4 md:gap-5">
-                  <div className="lamp">
-                    {p.icon}
-                  </div>
-                  <div className="pt-0.5">
-                    <h3 className="font-extrabold text-[17px] mb-1.5" style={{ color: "#F1ECFB" }}>{p.title}</h3>
-                    <p className="text-sm leading-loose" style={{ color: "#B3A9C8" }}>{p.body}</p>
-                  </div>
+                <span className="flame" aria-hidden />
+                <div className="pt-0.5">
+                  <h3 className="font-extrabold text-[17px] mb-1.5" style={{ color: "#F5F1FC" }}>{p.title}</h3>
+                  <p className="text-sm leading-loose" style={{ color: "#A79FC0" }}>{p.body}</p>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
