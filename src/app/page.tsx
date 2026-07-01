@@ -219,24 +219,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Perks — こだわり4点 */}
-      <section className="relative px-6 pt-24 pb-24 max-w-5xl mx-auto w-full">
-        <h2 data-reveal className="text-center text-3xl md:text-4xl font-extrabold mb-14 tracking-tight"
-          style={{ color: "#F1ECFB" }}>
-          <span className="inline-block">集中の時間を、</span><span className="text-gradient inline-block">もっとあたたかく。</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      {/* Perks — こだわり4点（灯りで照らす夜の棚） */}
+      <section className="relative px-6 pt-24 pb-28 max-w-5xl mx-auto w-full">
+        <div aria-hidden className="perks-warmth" />
+
+        <div data-reveal className="relative text-center mb-14">
+          <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] mb-4"
+            style={{ color: "#F2B24C" }}>
+            <span className="w-4 h-px" style={{ background: "linear-gradient(90deg, transparent, #F2B24C)" }} />
+            四つのこだわり
+            <span className="w-4 h-px" style={{ background: "linear-gradient(90deg, #F2B24C, transparent)" }} />
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight" style={{ color: "#F1ECFB" }}>
+            <span className="inline-block">集中の時間を、</span><span className="text-honey inline-block">もっとあたたかく。</span>
+          </h2>
+        </div>
+
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-5">
           {perks.map((p, i) => (
-            <div key={p.title} data-reveal
-              className="paper rounded-[1.75rem] p-7 flex items-start gap-4 transition-transform duration-300 hover:-translate-y-1"
-              style={{ transitionDelay: `${i * 70}ms` }}>
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                style={{ backgroundColor: `${p.accent}22`, color: p.accent, border: `1px solid ${p.accent}33` }}>
-                {p.icon}
-              </div>
-              <div>
-                <h3 className="font-extrabold text-[17px] mb-1.5" style={{ color: "#F1ECFB" }}>{p.title}</h3>
-                <p className="text-sm leading-loose" style={{ color: "#A79FC0" }}>{p.body}</p>
+            <div key={p.title} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
+              <div className="perk p-6 md:p-7 h-full"
+                style={{ ["--accent" as string]: p.accent }}>
+                <div className="relative flex items-start gap-4 md:gap-5">
+                  <div className="lamp">
+                    {p.icon}
+                  </div>
+                  <div className="pt-0.5">
+                    <h3 className="font-extrabold text-[17px] mb-1.5" style={{ color: "#F1ECFB" }}>{p.title}</h3>
+                    <p className="text-sm leading-loose" style={{ color: "#B3A9C8" }}>{p.body}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
