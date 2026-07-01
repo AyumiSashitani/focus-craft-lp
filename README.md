@@ -28,8 +28,12 @@ npm run lint
 
 Cloudflare Workers（Static Assets）でホスティング。`main` への push で自動ビルド＆デプロイ（CI/CD）。
 
+```bash
+npm run deploy   # next build → out/ を生成し wrangler deploy で配信
+```
+
 - ビルド: `npm run build` → `out/` を生成
-- 配信: `npx wrangler deploy`（`wrangler.jsonc` の `assets` で `out/` を配信）
+- 配信: `npm run deploy`（`next build && wrangler deploy`。`wrangler.jsonc` の `assets` で `out/` を配信）
 - アクセス解析: Cloudflare Web Analytics（Cookieless）
 
 ### 環境変数（任意）
