@@ -31,11 +31,11 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Focus Craft — 集中が、積み上がる。",
+  title: "Focus Craft — 集中が積み上がる。",
   description:
     "数字に追い立てられない、心地よいポモドーロ。集中するほど相棒とあなたの作業部屋が育つ、新しい集中体験アプリ。",
   openGraph: {
-    title: "Focus Craft — 集中が、積み上がる。",
+    title: "Focus Craft — 集中が積み上がる。",
     description:
       "数字に追い立てられない、心地よいポモドーロ。集中するほど相棒とあなたの作業部屋が育つ、新しい集中体験アプリ。",
     url: siteUrl,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Focus Craft — 集中が、積み上がる。",
+    title: "Focus Craft — 集中が積み上がる。",
     description: "相棒と育てる、心地よいポモドーロ。近日公開。",
     images: ["/og.png"],
   },
