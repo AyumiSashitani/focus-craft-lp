@@ -47,7 +47,7 @@ export default function TermsPage() {
           本規約は予告なく変更される場合があります。変更後に本アプリを使用し続けた場合、変更後の規約に同意したものとみなします。
         </Section>
         <Section title="10. お問い合わせ">
-          <a href="mailto:sashiiii.dev@gmail.com" className="underline" style={{ color: "#9B8FFF" }}>sashiiii.dev@gmail.com</a>
+          <a href="mailto:focuscraft.app@gmail.com" className="underline" style={{ color: "#9B8FFF" }}>focuscraft.app@gmail.com</a>
         </Section>
       </div>
     </div>

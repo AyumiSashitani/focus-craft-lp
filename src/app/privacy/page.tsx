@@ -15,13 +15,13 @@ export default function PrivacyPage() {
       </Link>
 
       <h1 className="text-3xl font-bold mb-2">プライバシーポリシー</h1>
-      <p className="text-sm mb-10" style={{ color: "#8B8BA7" }}>最終更新日：2026年6月13日</p>
+      <p className="text-sm mb-10" style={{ color: "#8B8BA7" }}>最終更新日：2026年7月1日</p>
 
       <div className="flex flex-col gap-8 text-sm leading-relaxed" style={{ color: "#c8c8d8" }}>
         <Section title="1. はじめに">
           Focus Craft（以下「本アプリ」）は、Ayumi Sashitani（以下「開発者」）が提供する
           ポモドーロタイマーアプリです。本ポリシーは、本アプリおよび本ウェブサイトにおける
-          個人情報の取り扱いについて説明します。
+          データの取り扱いについて説明します。
         </Section>
 
         <Section title="2. 収集する情報">
@@ -29,57 +29,61 @@ export default function PrivacyPage() {
           <ul className="list-disc list-inside flex flex-col gap-2 ml-2">
             <li>
               <strong className="text-white">利用統計情報</strong>
-              （Firebase Analytics）：セッション開始・完了・中断の回数、画面遷移など。
-              個人を特定しない匿名データです。
+              （Firebase Analytics）：セッションの開始・完了・中断などのイベント、
+              画面遷移など。個人を特定しない匿名データです。
             </li>
             <li>
               <strong className="text-white">クラッシュレポート</strong>
-              （Firebase Crashlytics）：アプリ異常終了時のスタックトレース。
-              デバッグ目的のみに使用します。
+              （Firebase Crashlytics）：アプリ異常終了時の情報。デバッグ目的のみに使用します。
             </li>
             <li>
-              <strong className="text-white">端末情報</strong>
-              ：OS バージョン、端末モデルなど。統計情報に含まれます。
+              <strong className="text-white">パフォーマンスデータ</strong>
+              （Firebase Performance）：起動時間など。
+            </li>
+            <li>
+              <strong className="text-white">端末識別子・通知トークン</strong>
+              （Firebase Cloud Messaging）：リマインダー通知の送信に使用します。
+            </li>
+            <li>
+              <strong className="text-white">メールアドレス（任意）</strong>
+              ：Google でサインインした場合に取得し、アカウントの識別・管理に使用します。
+              Apple でのサインインではユーザー識別子のみを取得し、
+              <strong className="text-white">お名前・メールアドレスは取得しません</strong>。
             </li>
           </ul>
-          <p className="mt-4">
-            本ウェブサイト（ランディングページ）は静的なページのみで構成されており、
-            お名前やメールアドレスなどの個人情報を入力・送信していただく機能はありません。
-          </p>
         </Section>
 
-        <Section title="3. 情報の利用目的">
+        <Section title="3. クラウドへの保存とバックアップ">
+          セッション履歴・進捗・ゲーム状態は、お使いの端末に保存されるほか、
+          Firebase Firestore にも保存されます。これはアカウントの識別子に紐づき、
+          機種変更や再インストール時にデータを復元するために使用します。
+          Apple または Google でサインインすると、複数の端末間で同じデータを引き継げます。
+        </Section>
+
+        <Section title="4. 情報の利用目的">
           収集した情報は以下の目的にのみ使用します。
           <ul className="list-disc list-inside flex flex-col gap-2 ml-2 mt-3">
+            <li>アプリの機能提供（進捗の保存・復元）</li>
             <li>アプリの品質改善およびバグ修正</li>
             <li>機能の使われ方の把握（UX 改善）</li>
-            <li>クラッシュの検出と修正</li>
           </ul>
-          収集した情報を第三者に販売することはありません。
+          収集した情報を第三者に販売することはありません。また、広告や行動トラッキングの
+          目的には使用しません。
         </Section>
 
-        <Section title="4. 広告について">
-          本アプリは現在、広告を表示しません。将来的に広告を導入する場合は、
-          本ポリシーを更新してお知らせします。
+        <Section title="5. 広告・トラッキングについて">
+          本アプリは広告を表示せず、広告 ID（Advertising ID）も使用しません。
+          ユーザーを追跡したり、データを広告目的に利用したりすることはありません。
         </Section>
 
-        <Section title="5. データの保管">
-          タイマー設定・集中記録などのアプリデータは、お使いの端末内にのみ保存されます。
-          現時点でクラウドへのアップロードは行いません。
-        </Section>
-
-        <Section title="6. トラッキングについて（iOS）">
-          iOS では App Tracking Transparency（ATT）の許可を求める場合があります。
-          拒否した場合でも、本アプリのすべての機能をご利用いただけます。
-          トラッキングデータは広告目的には使用しません。
-        </Section>
-
-        <Section title="7. 第三者サービス">
+        <Section title="6. 第三者サービス">
           本アプリは以下の第三者サービスを使用しています。
           <ul className="list-disc list-inside flex flex-col gap-2 ml-2 mt-3">
             <li>
               <strong className="text-white">Firebase（Google LLC）</strong>
-              ：Analytics・Crashlytics・Remote Config。
+              ：Analytics・Crashlytics・Performance・Firestore・Authentication・
+              Cloud Messaging。データは Google のプライバシーポリシーおよび
+              データ処理契約（DPA）に基づき処理されます。
               <a href="https://policies.google.com/privacy"
                 className="ml-1 underline" style={{ color: "#9B8FFF" }}
                 target="_blank" rel="noopener noreferrer">
@@ -87,6 +91,30 @@ export default function PrivacyPage() {
               </a>
             </li>
           </ul>
+        </Section>
+
+        <Section title="7. データの削除とユーザーの権利">
+          <p className="mb-3">
+            ユーザーは、自身のデータへのアクセス・訂正・削除をリクエストできます。
+          </p>
+          <ul className="list-disc list-inside flex flex-col gap-2 ml-2">
+            <li>
+              <strong className="text-white">削除</strong>
+              ：アプリ内の「設定 → アカウント → アカウントを削除」から、
+              またはアプリ削除後は下記メールアドレスからリクエストできます。
+              手順の詳細は
+              <Link href="/delete-account" className="ml-1 underline" style={{ color: "#9B8FFF" }}>
+                アカウントとデータの削除
+              </Link>
+              をご覧ください。
+            </li>
+          </ul>
+          <p className="mt-4">
+            EU / EEA・英国のユーザーは、GDPR に基づく権利（アクセス・訂正・削除・
+            処理の制限・データポータビリティ等）を有します。処理の法的根拠は、
+            アプリ機能を提供するための契約の履行、および品質改善に関する開発者の
+            正当な利益です。行使をご希望の場合は下記までご連絡ください。
+          </p>
         </Section>
 
         <Section title="8. お子様のプライバシー">
@@ -100,11 +128,11 @@ export default function PrivacyPage() {
         </Section>
 
         <Section title="10. お問い合わせ">
-          プライバシーに関するご質問は下記までご連絡ください。
+          プライバシーに関するご質問・権利行使のリクエストは下記までご連絡ください。
           <br />
-          <a href="mailto:sashiiii.dev@gmail.com" className="underline mt-1 inline-block"
+          <a href="mailto:focuscraft.app@gmail.com" className="underline mt-1 inline-block"
             style={{ color: "#9B8FFF" }}>
-            sashiiii.dev@gmail.com
+            focuscraft.app@gmail.com
           </a>
         </Section>
       </div>
