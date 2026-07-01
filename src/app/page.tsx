@@ -84,7 +84,7 @@ function Showcase({
           <img src={img} alt={alt} width={1179} height={2556} loading="lazy" decoding="async" />
         </div>
       </div>
-      <div className={flip ? "md:order-1" : ""}>
+      <div className={`text-center md:text-left ${flip ? "md:order-1" : ""}`}>
         <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full mb-4"
           style={{ backgroundColor: `${accent}22`, color: accent, border: `1px solid ${accent}44` }}>
           <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
@@ -99,7 +99,7 @@ function Showcase({
         </p>
         <ul className="flex flex-col gap-2.5">
           {points.map((p) => (
-            <li key={p} className="flex items-start gap-2.5 text-sm" style={{ color: "#CFC7E4" }}>
+            <li key={p} className="flex items-start justify-center md:justify-start gap-2.5 text-sm text-left" style={{ color: "#CFC7E4" }}>
               <span className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center"
                 style={{ backgroundColor: `${accent}33`, color: accent }}>
                 <svg viewBox="0 0 24 24" className="w-2.5 h-2.5" fill="none" stroke="currentColor"
