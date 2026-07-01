@@ -152,11 +152,6 @@ export default function Home() {
             Focus Craft
           </span>
         </div>
-        <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
-          style={{ backgroundColor: "#B9A9E81E", color: "#C9BCF2", border: "1px solid #B9A9E844" }}>
-          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "#B9A9E8" }} />
-          近日公開
-        </span>
       </nav>
 
       {/* Hero */}
@@ -190,8 +185,6 @@ export default function Home() {
               className="paper flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-bold opacity-90 cursor-not-allowed">
               <span className="text-base" style={{ color: "#F1ECFB" }}>{s.glyph}</span>
               <span style={{ color: "#F1ECFB" }}>{s.name}</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full font-bold"
-                style={{ backgroundColor: "#B9A9E824", color: "#C9BCF2" }}>近日</span>
             </div>
           ))}
         </div>
