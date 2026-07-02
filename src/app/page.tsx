@@ -147,7 +147,7 @@ export default function Home() {
       <section className="relative flex flex-col items-center text-center px-6 pt-32 md:pt-40 pb-20">
         <h1 data-reveal className="text-[2.9rem] md:text-7xl font-extrabold leading-[1.14] tracking-tight mb-5"
           style={{ color: "#F1ECFB" }}>
-          集中が
+          <span className="text-honey">集中</span>が
           <br className="md:hidden" />
           積み上がる。
         </h1>
@@ -229,7 +229,9 @@ export default function Home() {
               <span className="inline-block">集中の時間を、</span><span className="text-honey inline-block">もっとあたたかく。</span>
             </h2>
             <p className="text-sm md:text-[15px] leading-loose mt-4" style={{ color: "#B3A9C8" }}>
-              急かす数字じゃなく、夜の心地よさを設計しました。灯りをひとつずつ、増やすように。
+              <span className="inline-block">機能の多さより、</span>
+              <span className="inline-block">毎日ひらいて心地いいかどうか。</span>
+              <span className="inline-block">基準はそれだけです。</span>
             </p>
           </div>
 
