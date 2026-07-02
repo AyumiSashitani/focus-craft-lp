@@ -125,6 +125,17 @@ const steps = [
   { accent: "#F2B24C", title: "育てる", body: "完了するたび記録が残り、相棒と部屋が育っていく。" },
 ];
 
+// 背景（外の世界）バリエーション。実アプリの環境テーマを撮影したもの。
+const environments = [
+  { img: "sunset", label: "夕焼け", accent: "#F2A65E" },
+  { img: "nature", label: "森の昼", accent: "#8FB08A" },
+  { img: "ocean", label: "海の底", accent: "#4FA3C7" },
+  { img: "aurora", label: "オーロラ", accent: "#6FD3B0" },
+  { img: "space", label: "星空", accent: "#8B7FD4" },
+  { img: "cyberpunk", label: "ネオン", accent: "#E06AC2" },
+  { img: "cozy", label: "ぬくもり", accent: "#F2B24C" },
+];
+
 export default function Home() {
   return (
     <div className="relative flex flex-col min-h-screen overflow-x-hidden grain"
@@ -214,6 +225,36 @@ export default function Home() {
             points={["日ごとの集中がヒートマップで一目に", "連続記録（ストリーク）で「明日も」が続く", "累計セッション・時間もまるごと記録"]}
             flip
           />
+        </div>
+      </section>
+
+      {/* Environments — 背景バリエーション（模様替え）*/}
+      <section className="relative px-6 pt-24 pb-8 max-w-5xl mx-auto w-full">
+        <div data-reveal className="mb-14 text-center">
+          <Eyebrow trail>模様替え</Eyebrow>
+          <h2 className="text-2xl md:text-[32px] font-extrabold tracking-tight mb-5" style={{ color: "#F1ECFB" }}>
+            <span className="inline-block">その日の気分で、</span><span className="text-honey inline-block">世界を変える。</span>
+          </h2>
+          <p className="text-sm md:text-[15px] leading-loose max-w-xl mx-auto" style={{ color: "#A79FC0" }}>
+            <span className="inline-block">集中する部屋の&ldquo;外の世界&rdquo;は、夕焼け・海・オーロラ・星空…から自由に。</span>
+            <span className="inline-block">天気（晴れ・雨・雪）や壁の色も、集中とともに少しずつ増えていく。</span>
+          </p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6 justify-items-center">
+          {environments.map((e, i) => (
+            <div key={e.img} data-reveal className="flex flex-col items-center gap-3 w-full"
+              style={{ transitionDelay: `${i * 60}ms` }}>
+              <div className="device w-full" style={{ maxWidth: 176 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/screens/envs/${e.img}.jpg`} alt={`${e.label}の背景で集中する作業部屋`}
+                  width={540} height={1170} loading="lazy" decoding="async" />
+              </div>
+              <span className="flex items-center gap-1.5 text-xs font-bold" style={{ color: e.accent }}>
+                <Flame accent={e.accent} small />
+                {e.label}
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
