@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Focus Craft — 集中が積み上がる。",
   description:
-    "数字に追い立てられない、心地よいポモドーロ。集中するほど相棒とあなたの作業部屋が育つ、新しい集中体験アプリ。",
+    "数字に追い立てられない、心地よいポモドーロタイマー。集中するほど、相棒とあなたの作業部屋が育っていきます。",
   openGraph: {
     title: "Focus Craft — 集中が積み上がる。",
     description:
-      "数字に追い立てられない、心地よいポモドーロ。集中するほど相棒とあなたの作業部屋が育つ、新しい集中体験アプリ。",
+      "数字に追い立てられない、心地よいポモドーロタイマー。集中するほど、相棒とあなたの作業部屋が育っていきます。",
     url: siteUrl,
     siteName: "Focus Craft",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Focus Craft — 集中が積み上がる。",
-    description: "相棒と育てる、心地よいポモドーロ。近日公開。",
+    description: "相棒と育てる、心地よいポモドーロタイマー。",
     images: ["/og.png"],
   },
 };
