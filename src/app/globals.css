@@ -43,44 +43,12 @@ body {
   transform: none;
 }
 
-/* ---- Animations ---- */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-@keyframes sway {
-  0%, 100% { transform: rotate(-2.5deg); }
-  50% { transform: rotate(2.5deg); }
-}
-@keyframes blink {
-  0%, 92%, 100% { transform: scaleY(1); }
-  96% { transform: scaleY(0.1); }
-}
-@keyframes driftWarm {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
-  50% { transform: translate(0, -14px) scale(1.06); opacity: 0.75; }
-}
-
-.float { animation: float 6s ease-in-out infinite; }
-.sway { transform-origin: bottom center; animation: sway 5s ease-in-out infinite; }
-.drift { animation: driftWarm 11s ease-in-out infinite; }
-
-/* グラデーション文字（主役＝ラベンダー） */
-.text-gradient {
-  background: linear-gradient(100deg, #C9BCF2 0%, #B9A9E8 45%, #8B7FD4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-/* 差し色＝窓辺の灯り（暖色） */
+/* 差し色＝窓辺の灯り（暖色）。グラデ文字はテンプレ臭が強いので単色に統一 */
 .text-honey {
-  background: linear-gradient(100deg, #F7C771 0%, #F2B24C 60%, #E59B3C 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #F2B24C;
 }
 
-/* 夜のガラスカード（暗色・やわらかな縁の光） */
+/* 夜のガラスカード（暗色・やわらかな縁の光）— ストアボタン等の小物用 */
 .paper {
   background: linear-gradient(180deg, rgba(42, 35, 66, 0.72), rgba(30, 24, 48, 0.72));
   border: 1px solid rgba(185, 169, 232, 0.14);
@@ -121,8 +89,50 @@ body {
   opacity: 0.6;
 }
 
-/* ---- Perks（こだわり）— 夜の窓：一枚のシーンに灯りを灯す ---- */
-/* テンプレ的なカード grid を廃し、ひとつの「夜の窓」パネルに内包する */
+/* ---- 夜空と地平 — ページ全体をひとつの夜として照らす ----
+   （巨大なぼかしブロブの代わり。上に星、下に窓明かりの気配だけ） */
+.night-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background:
+    radial-gradient(80% 46% at 50% -8%, rgba(139, 127, 212, 0.13), transparent 65%),
+    radial-gradient(96% 42% at 50% 106%, rgba(242, 178, 76, 0.06), transparent 62%);
+}
+.night-sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 8% 12%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 22% 28%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 37% 8%, rgba(255, 240, 210, 0.5), transparent),
+    radial-gradient(1px 1px at 54% 20%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 71% 10%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 86% 24%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 94% 14%, rgba(255, 240, 210, 0.4), transparent);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 42%);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 42%);
+  opacity: 0.8;
+}
+
+/* 手元をともす灯り（ヒーロー実機の足元にたまる暖色。浮遊はやめて接地） */
+.hearth-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 60%;
+  border-radius: 9999px;
+  background: radial-gradient(50% 55% at 50% 62%,
+    rgba(242, 178, 76, 0.20), rgba(242, 178, 76, 0.05) 55%, transparent 78%);
+  filter: blur(26px);
+  pointer-events: none;
+}
+
+/* ---- 夜の窓パネル（こだわり・CTA 共通の器） ---- */
 .night-panel {
   position: relative;
   border-radius: 2rem;
@@ -174,7 +184,8 @@ body {
   100% { transform: translateY(-160px) translateX(var(--drift, 8px)) scale(0.4); opacity: 0; }
 }
 
-/* こだわり1件＝枠なしの灯り。--accent が炎の色（寒色→暖色へ並ぶ） */
+/* ---- 灯り（キャンドルの炎）— ページ共通のマーカー ----
+   --accent が炎の色。中心が白熱、外へ向けてアクセント色に灯る */
 .flame {
   position: relative;
   flex-shrink: 0;
@@ -182,7 +193,6 @@ body {
   height: 0.9rem;
   margin-top: 0.4rem;
   border-radius: 9999px;
-  /* 中心が白熱、外へ向けてアクセント色に灯る炎 */
   background: radial-gradient(circle at 50% 50%,
     #FFF7E9 0%,
     color-mix(in srgb, var(--accent) 78%, #ffffff) 34%,
@@ -192,6 +202,16 @@ body {
     0 0 10px 2px color-mix(in srgb, var(--accent) 68%, transparent),
     0 0 24px 6px color-mix(in srgb, var(--accent) 32%, transparent);
   animation: candle 5.5s ease-in-out infinite;
+}
+/* 箇条書き用の小さな灯り（静か・明滅なし） */
+.flame-xs {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.42rem;
+  animation: none;
+  box-shadow:
+    0 0 7px 1px color-mix(in srgb, var(--accent) 55%, transparent),
+    0 0 14px 3px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 /* ろうそくの微かな揺らぎ */
 @keyframes candle {
@@ -210,7 +230,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .js [data-reveal] { opacity: 1; transform: none; transition: none; }
-  .float, .sway, .drift { animation: none; }
   .flame, .ember { animation: none; }
   .ember { opacity: 0.6; }
 }
