@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import Script from "next/script";
 import RevealManager from "@/components/RevealManager";
+import { hreflangAlternates } from "@/i18n/config";
 import "./globals.css";
 
 // 丸み・親しみのある日本語対応フォント（cozy 育成のトーンに合わせる）。
@@ -34,6 +35,8 @@ export const metadata: Metadata = {
   title: "Focus Craft — 集中が積み上がる。",
   description:
     "数字に追い立てられない、心地よいポモドーロタイマー。集中するほど、相棒とあなたの作業部屋が育っていきます。",
+  // ルート（/）は日本語。各言語版への hreflang を明示する。
+  alternates: { canonical: "/", languages: hreflangAlternates() },
   openGraph: {
     title: "Focus Craft — 集中が積み上がる。",
     description:
