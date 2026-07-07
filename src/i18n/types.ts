@@ -62,4 +62,5 @@ export interface Dict {
     contact: string;
   };
   iconAlt: string;
+  comingSoon: string; // 未リリースのストアボタンに付ける「準備中」ラベル
 }

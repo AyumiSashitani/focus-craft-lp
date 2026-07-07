@@ -127,6 +127,7 @@ const en: Dict = {
     contact: "Contact",
   },
   iconAlt: "Focus Craft",
+  comingSoon: "Coming soon",
 };
 
 export default en;

@@ -216,13 +216,28 @@ function AppStoreButton() {
   );
 }
 
-// Google Play は未リリース。押せない見た目のまま残す。
-function GooglePlaySoon() {
+// Google Play は未リリース。押下不可であることを「準備中」バッジで明示する。
+function GooglePlaySoon({ label }: { label: string }) {
   return (
     <div
+      role="button"
       aria-disabled="true"
-      className="paper flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-bold opacity-50 cursor-not-allowed"
+      title={label}
+      className="paper relative flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-bold cursor-not-allowed select-none"
+      style={{ opacity: 0.55 }}
     >
+      {/* 準備中バッジ（コーナー） */}
+      <span
+        className="absolute -top-2.5 -right-2 px-2 py-0.5 rounded-full text-[10px] font-bold leading-none whitespace-nowrap"
+        style={{
+          background: "#2A2540",
+          color: "#B9A9E8",
+          border: "1px solid rgba(185,169,232,0.35)",
+          boxShadow: "0 4px 10px -4px rgba(0,0,0,0.6)",
+        }}
+      >
+        {label}
+      </span>
       <svg viewBox="0 0 24 24" aria-hidden className="w-4 h-4" fill="#F1ECFB">
         <path d="M3.6 2.4c-.36.19-.6.57-.6 1.05v17.1c0 .48.24.86.6 1.05l9.9-9.6-9.9-9.6Zm11.1 8.44L5.85 2.26l11.03 6.35-2.18 2.23Zm3.94-.9 2.6 1.5c.5.29.5.83 0 1.12l-2.6 1.5-2.42-2.06 2.42-2.06Zm-1.76 5.4L5.85 21.74l8.85-8.58 2.18 2.18Z" />
       </svg>
@@ -349,7 +364,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
 
         <div data-reveal className="flex gap-3 flex-wrap justify-center">
           <AppStoreButton />
-          <GooglePlaySoon />
+          <GooglePlaySoon label={dict.comingSoon} />
         </div>
       </section>
 
@@ -527,7 +542,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
             </p>
             <div className="flex gap-3 flex-wrap justify-center">
               <AppStoreButton />
-              <GooglePlaySoon />
+              <GooglePlaySoon label={dict.comingSoon} />
             </div>
           </div>
         </div>
