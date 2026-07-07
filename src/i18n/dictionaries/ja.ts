@@ -115,6 +115,7 @@ const ja: Dict = {
     contact: "お問い合わせ",
   },
   iconAlt: "Focus Craft",
+  comingSoon: "準備中",
 };
 
 export default ja;

@@ -112,6 +112,7 @@ const ko: Dict = {
     contact: "문의하기",
   },
   iconAlt: "Focus Craft",
+  comingSoon: "준비 중",
 };
 
 export default ko;

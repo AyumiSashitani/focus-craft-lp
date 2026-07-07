@@ -110,6 +110,7 @@ const zh: Dict = {
     contact: "联系我们",
   },
   iconAlt: "Focus Craft",
+  comingSoon: "即将上线",
 };
 
 export default zh;
