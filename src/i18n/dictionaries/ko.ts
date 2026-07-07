@@ -99,11 +99,11 @@ const ko: Dict = {
     ],
   },
   cta: {
-    title: ["출시까지, ", { honey: "조금만 더." }],
+    title: ["App Store에서 ", { honey: "만나보세요." }],
     body: [
-      "App Store / Google Play 출시를 향해, ",
+      "지금 다운로드하고 파트너와 집중을 시작하세요. ",
       { br: "desktop" },
-      "파트너와 함께 준비 중입니다. 조금만 더 기다려 주세요.",
+      "Google Play 버전도 준비 중입니다.",
     ],
   },
   footer: {

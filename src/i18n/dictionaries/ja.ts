@@ -102,11 +102,11 @@ const ja: Dict = {
     ],
   },
   cta: {
-    title: ["リリースまで", { honey: "もう少し。" }],
+    title: ["App Store で", { honey: "配信中。" }],
     body: [
-      "App Store / Google Play での配信に向けて、",
+      "いますぐダウンロードして、相棒との集中をはじめよう。",
       { br: "desktop" },
-      "相棒と一緒に準備中です。もう少しだけお待ちください。",
+      "Google Play 版も、もう少しお待ちください。",
     ],
   },
   footer: {

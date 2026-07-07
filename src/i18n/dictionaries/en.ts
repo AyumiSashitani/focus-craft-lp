@@ -114,11 +114,11 @@ const en: Dict = {
     ],
   },
   cta: {
-    title: ["The release is ", { honey: "almost here." }],
+    title: ["Now on ", { honey: "the App Store." }],
     body: [
-      "We're getting ready for App Store / Google Play, ",
+      "Download it today and start focusing with your companion. ",
       { br: "desktop" },
-      "together with your companion. Just a little longer.",
+      "The Google Play version is on its way, too.",
     ],
   },
   footer: {
