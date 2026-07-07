@@ -195,6 +195,42 @@ function Showcase({
   );
 }
 
+/* ---------------- ストアボタン（文字グリフ回避でロゴはインライン SVG） ---------------- */
+// 国コード無しの汎用リンク。閲覧者の地域のストアへ自動で振り分けられる。
+const APP_STORE_URL = "https://apps.apple.com/app/id6785937405";
+
+function AppStoreButton() {
+  return (
+    <a
+      href={APP_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Download on the App Store"
+      className="paper flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-bold transition-transform hover:-translate-y-0.5"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden className="w-4 h-4" fill="#F1ECFB">
+        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z" />
+      </svg>
+      <span style={{ color: "#F1ECFB" }}>App Store</span>
+    </a>
+  );
+}
+
+// Google Play は未リリース。押せない見た目のまま残す。
+function GooglePlaySoon() {
+  return (
+    <div
+      aria-disabled="true"
+      className="paper flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-bold opacity-50 cursor-not-allowed"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden className="w-4 h-4" fill="#F1ECFB">
+        <path d="M3.6 2.4c-.36.19-.6.57-.6 1.05v17.1c0 .48.24.86.6 1.05l9.9-9.6-9.9-9.6Zm11.1 8.44L5.85 2.26l11.03 6.35-2.18 2.23Zm3.94-.9 2.6 1.5c.5.29.5.83 0 1.12l-2.6 1.5-2.42-2.06 2.42-2.06Zm-1.76 5.4L5.85 21.74l8.85-8.58 2.18 2.18Z" />
+      </svg>
+      <span style={{ color: "#F1ECFB" }}>Google Play</span>
+    </div>
+  );
+}
+
 /* ---------------- 言語共通の装飾・配色設定（テキストは辞書から） ---------------- */
 
 // こだわり4点の灯りの色（寒色→暖色へ）。テキストは dict.perks.items と index で対応。
@@ -312,19 +348,8 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
         </div>
 
         <div data-reveal className="flex gap-3 flex-wrap justify-center">
-          {/* 文字グリフ（環境依存で豆腐になる）を避け、インライン SVG で描く */}
-          <div className="paper flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-bold opacity-90 cursor-not-allowed">
-            <svg viewBox="0 0 24 24" aria-hidden className="w-4 h-4" fill="#F1ECFB">
-              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z" />
-            </svg>
-            <span style={{ color: "#F1ECFB" }}>App Store</span>
-          </div>
-          <div className="paper flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-bold opacity-90 cursor-not-allowed">
-            <svg viewBox="0 0 24 24" aria-hidden className="w-4 h-4" fill="#F1ECFB">
-              <path d="M3.6 2.4c-.36.19-.6.57-.6 1.05v17.1c0 .48.24.86.6 1.05l9.9-9.6-9.9-9.6Zm11.1 8.44L5.85 2.26l11.03 6.35-2.18 2.23Zm3.94-.9 2.6 1.5c.5.29.5.83 0 1.12l-2.6 1.5-2.42-2.06 2.42-2.06Zm-1.76 5.4L5.85 21.74l8.85-8.58 2.18 2.18Z" />
-            </svg>
-            <span style={{ color: "#F1ECFB" }}>Google Play</span>
-          </div>
+          <AppStoreButton />
+          <GooglePlaySoon />
         </div>
       </section>
 
@@ -483,7 +508,7 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
         </div>
       </section>
 
-      {/* Coming soon CTA — 夜の窓の中で待つ */}
+      {/* Download CTA — 夜の窓の中で誘う */}
       <section className="relative px-6 pb-28 max-w-lg mx-auto w-full text-center">
         <div data-reveal className="night-panel p-10 md:p-11">
           <Embers list={ctaEmbers} />
@@ -497,9 +522,13 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
             >
               <RichText segs={dict.cta.title} cjk={cjk} />
             </h2>
-            <p className="text-sm leading-loose" style={{ color: "#A79FC0" }}>
+            <p className="text-sm leading-loose mb-7" style={{ color: "#A79FC0" }}>
               <RichText segs={dict.cta.body} cjk={cjk} />
             </p>
+            <div className="flex gap-3 flex-wrap justify-center">
+              <AppStoreButton />
+              <GooglePlaySoon />
+            </div>
           </div>
         </div>
       </section>

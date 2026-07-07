@@ -97,11 +97,11 @@ const zh: Dict = {
     ],
   },
   cta: {
-    title: ["距离发布，", { honey: "只差一点。" }],
+    title: ["已在 App Store ", { honey: "上线。" }],
     body: [
-      "正为 App Store / Google Play 的上线做准备，",
+      "现在就下载，和伙伴一起开始专注。",
       { br: "desktop" },
-      "和伙伴一起。请再稍等片刻。",
+      "Google Play 版本也在准备中。",
     ],
   },
   footer: {
