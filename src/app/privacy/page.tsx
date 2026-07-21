@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       </Link>
 
       <h1 className="text-3xl font-bold mb-2">プライバシーポリシー</h1>
-      <p className="text-sm mb-10" style={{ color: "#8B8BA7" }}>最終更新日：2026年7月1日</p>
+      <p className="text-sm mb-10" style={{ color: "#8B8BA7" }}>最終更新日：2026年7月21日</p>
 
       <div className="flex flex-col gap-8 text-sm leading-relaxed" style={{ color: "#c8c8d8" }}>
         <Section title="1. はじめに">
@@ -49,6 +49,13 @@ export default function PrivacyPage() {
               ：Google でサインインした場合に取得し、アカウントの識別・管理に使用します。
               Apple でのサインインではユーザー識別子のみを取得し、
               <strong className="text-white">お名前・メールアドレスは取得しません</strong>。
+            </li>
+            <li>
+              <strong className="text-white">AI相棒とのチャット内容</strong>
+              ：アプリ内の「相棒とおしゃべり」機能をご利用の場合、会話内容は応答を
+              生成するために外部の生成AIサービス（OpenRouter）へ送信されます。
+              会話の一部は相棒の「記憶」として要約され、アカウントに紐づけて
+              Firebase Firestore に保存されます。
             </li>
           </ul>
         </Section>
@@ -88,6 +95,16 @@ export default function PrivacyPage() {
                 className="ml-1 underline" style={{ color: "#9B8FFF" }}
                 target="_blank" rel="noopener noreferrer">
                 Google のプライバシーポリシー
+              </a>
+            </li>
+            <li>
+              <strong className="text-white">OpenRouter</strong>
+              ：AI相棒とのチャット機能で、応答を生成するために会話内容を送信します。
+              データは OpenRouter のプライバシーポリシーに基づき処理されます。
+              <a href="https://openrouter.ai/privacy"
+                className="ml-1 underline" style={{ color: "#9B8FFF" }}
+                target="_blank" rel="noopener noreferrer">
+                OpenRouter のプライバシーポリシー
               </a>
             </li>
           </ul>
