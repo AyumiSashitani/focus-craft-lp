@@ -233,3 +233,35 @@ body {
   .flame, .ember { animation: none; }
   .ember { opacity: 0.6; }
 }
+
+/* ---- ヒーローの相棒（実アプリのスプライトシートを steps() で再生） ---- */
+/* 64×64 × 8フレーム（512×64）。scale で拡大してもドットはカリカリのまま。 */
+.hero-companion {
+  position: absolute;
+  /* 実機フレームの右足元、灯りだまりの中で眠る */
+  right: -58px;
+  bottom: 6px;
+  width: 96px;
+  height: 96px;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-companion-sprite {
+  width: 64px;
+  height: 64px;
+  background: url("/sprites/dog-sleep.png") no-repeat 0 0;
+  image-rendering: pixelated;
+  transform: scale(1.5);
+  transform-origin: bottom left;
+  animation: hero-dog-sleep 2.4s steps(8) infinite;
+}
+@keyframes hero-dog-sleep {
+  to { background-position-x: -512px; }
+}
+@media (max-width: 420px) {
+  .hero-companion { right: -34px; }
+  .hero-companion-sprite { transform: scale(1.25); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-companion-sprite { animation: none; }
+}

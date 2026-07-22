@@ -10,6 +10,7 @@
 import Link from "next/link";
 import { isCjk, htmlLang, type Locale } from "@/i18n/config";
 import type { Dict, Seg } from "@/i18n/types";
+import HeroCompanion from "@/components/HeroCompanion";
 import LangSwitcher from "@/components/LangSwitcher";
 
 /* ---------------- リッチテキスト（ハニー強調・レスポンシブ改行） ---------------- */
@@ -359,6 +360,8 @@ export default function Landing({ dict, locale }: { dict: Dict; locale: Locale }
               height={2556}
               decoding="async"
             />
+            {/* 灯りだまりで眠る相棒 — アプリと同じドット絵がそのまま動く */}
+            <HeroCompanion />
           </div>
         </div>
 
